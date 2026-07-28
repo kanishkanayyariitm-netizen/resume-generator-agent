@@ -11,7 +11,7 @@ import numpy as np
 from langchain.messages import SystemMessage, HumanMessage
 from langchain.agents import create_agent
 import tempfile
-
+import PIL import Image
 
 # streamlit is web based python frame work
 st.title("AI RESUME MAKER & JOB APPLY AGENT")
@@ -23,8 +23,10 @@ GOOGLE_API_KEY = st.sidebar.text_input("Google Api Key", type = 'password')
 GROQ_API_KEY = st.sidebar.text_input("GROQ Api Key", type = 'password')
 TAVILY_API_KEY = st.sidebar.text_input("TAVILY Api Key", type = 'password')
 
-if not GOOGLE_API_KEY:
-  st.warning("Provide Google API key")
+if not (GOOGLE_API_KEY) and not (GROQ_API_KEY) and not (TAVILY_API_KEY):
+  st.sidebar.warning("Provide API keys")
+else:
+  st.success("API KEYS LOADED")
 
 
 # ============= MODEL and AGENT CODE====================
@@ -97,6 +99,26 @@ and must show user input details
 System instructions: Only Give HTML code as output"""
 
 final_prompt = prompt + prompt_reader()
+#========================================= upload image =======================================
+FILE=st.sidebar.file_uploader(
+  "choose an image file",
+  type=["jpg","jpeg","png","webp"]
+)
+if FILE is not none:
+  try:
+    image=Image.open(FILE)
+    st.sidebar.image(image,caption="uploaded image",
+                     use_container_width=true)
+    if image.mode in("RGBA","p"):
+      image=Image.convert("RGB")
+      
+    base_name = os.path.splitext(FILE.name)[0]
+    save_path= f"{base_name}.jpg"
+
+    image.save(save_path,"JPEG")
+    st.sidebar.success(f"image loaded and saved as '{save_path}'!")
+  except Exception as e:
+  st.error(f"Error processing image:{e}")
 
 profile_url = "https://s7d1.scene7.com/is/image/wbcollab/India_PM_Narendra_Modi-2?qlt=75&resMode=sharp2"
 
