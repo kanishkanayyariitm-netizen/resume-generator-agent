@@ -13,7 +13,7 @@ from langchain.agents import create_agent
 import tempfile
 from PIL import Image
 import base64
-
+st.set_page_config(layout="wide")
 # streamlit is web based python frame work
 st.title("AI RESUME MAKER & JOB APPLY AGENT")
 st.image("https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F217gvesbwwjbio4tgoji.png", width=300)
@@ -158,10 +158,10 @@ if st.button("Generate Resume"):
       data_url = f"data:image/jpeg;base64,{b64_image}"
       code = code.replace("PROFILE_IMAGE_PLACEHOLDER", data_url)
 
-st.html(code, width="stretch", unsafe_allow_javascript=True)
-
-#================apply jobs====================
-st.divider()
-response = agent.invoke({'messages':[{'role':'user',"content":job_prompt}]})
-job_code = response['messages'][-1].content[-1]['text']
-st.html(job_code, width="stretch", unsafe_allow_javascript=True)
+  st.html(code, width="stretch", unsafe_allow_javascript=True)
+  
+  #================apply jobs====================
+  st.divider()
+  response = agent.invoke({'messages':[{'role':'user',"content":job_prompt}]})
+  job_code = response['messages'][-1].content[-1]['text']
+  st.html(job_code, width="stretch", unsafe_allow_javascript=True)
