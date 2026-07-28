@@ -101,15 +101,7 @@ profile_url = "https://s7d1.scene7.com/is/image/wbcollab/India_PM_Narendra_Modi-
 user_info = st.text_input("Give your information: ")
 user_photo = st.sidebar.file_uploader("Upload pic", type = 'image/jpeg')
 
-if user_photo is not None:
-  # Create a temporary file
-  with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
-    tmp.write(user_photo.getvalue())
-    tmp_path = tmp.name
-
-user_query = f"""Give Resume for Python Developer.
-    user details : {user_info}
-    use user profile image from given {tmp_path}"""
+# ===============NEW CODE=============
 
 final_query = final_prompt + user_query
 
