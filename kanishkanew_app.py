@@ -92,7 +92,6 @@ def prompt_reader():
   return prompt
 
 
-
 prompt = """I want complete Professional
 Resume with Dynamic Design using Advanced CSS and JS
 and must show user input details
