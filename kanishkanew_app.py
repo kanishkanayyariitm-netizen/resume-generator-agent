@@ -104,7 +104,7 @@ FILE=st.sidebar.file_uploader(
   "choose an image file",
   type=["jpg","jpeg","png","webp"]
 )
-FILE is not none:
+FILE is not None:
   try:
     image=Image.open(FILE)
     st.sidebar.image(image,caption="uploaded image",
