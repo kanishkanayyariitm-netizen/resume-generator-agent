@@ -122,7 +122,7 @@ if FILE is not None:
 # Change this when required new resume by user, pass details
 user_info = st.text_area("Give your information: ")
 user_query=f"""user details:given below :
-resume info {User_info}
+resume info {user_info}
 DEFAULT IF NOT GIVEN : PYTHON DEVELOPER RESUME"""
 
 final_query = final_prompt + user_query
