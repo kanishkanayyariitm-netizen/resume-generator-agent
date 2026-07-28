@@ -104,11 +104,11 @@ FILE=st.sidebar.file_uploader(
   "choose an image file",
   type=["jpg","jpeg","png","webp"]
 )
-FILE is not None:
+if FILE is not None:
   try:
     image=Image.open(FILE)
     st.sidebar.image(image,caption="uploaded image",
-                     use_container_width=true)
+                     use_container_width=True)
     if image.mode in("RGBA","p"):
       image=Image.convert("RGB")
       
