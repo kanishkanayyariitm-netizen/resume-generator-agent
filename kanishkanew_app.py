@@ -11,7 +11,7 @@ import numpy as np
 from langchain.messages import SystemMessage, HumanMessage
 from langchain.agents import create_agent
 import tempfile
-import PIL import Image
+from PIL import Image
 
 # streamlit is web based python frame work
 st.title("AI RESUME MAKER & JOB APPLY AGENT")
