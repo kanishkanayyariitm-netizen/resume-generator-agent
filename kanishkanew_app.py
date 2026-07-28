@@ -152,11 +152,11 @@ if st.button("Generate Resume"):
     response = agent.invoke({'messages':[{'role':'user',"content":final_query}]})
     code = response['messages'][-1].content[-1]['text']
 
-if FILE is not None:
-  with open(save_path,"rb") as img_file:
-    b64_image= base64.b64encode(img_file.read()).decode()
-  data_url = f"data:image/jpeg;base64,{b64_image}"
-  code = code.replace("PROFILE_IMAGE_PLACEHOLDER", data_url)
+  if FILE is not None:
+    with open(save_path,"rb") as img_file:
+      b64_image= base64.b64encode(img_file.read()).decode()
+      data_url = f"data:image/jpeg;base64,{b64_image}"
+      code = code.replace("PROFILE_IMAGE_PLACEHOLDER", data_url)
 
 st.html(code, width="stretch", unsafe_allow_javascript=True)
 
