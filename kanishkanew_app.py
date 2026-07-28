@@ -118,14 +118,14 @@ if FILE is not none:
     image.save(save_path,"JPEG")
     st.sidebar.success(f"image loaded and saved as '{save_path}'!")
   except Exception as e:
-  st.error(f"Error processing image:{e}")
+    st.error(f"Error processing image:{e}")
 
 profile_url = "https://s7d1.scene7.com/is/image/wbcollab/India_PM_Narendra_Modi-2?qlt=75&resMode=sharp2"
 
 # Change this when required new resume by user, pass details
 
 user_info = st.text_input("Give your information: ")
-user_photo = st.sidebar.file_uploader("Upload pic", type = 'image/jpeg')
+
 
 # ===============NEW CODE=============
 
