@@ -103,7 +103,7 @@ user_photo = st.sidebar.file_uploader("Upload pic", type = 'image/jpeg')
 
 # ===============NEW CODE=============
 
-final_query = final_prompt + user_query
+final_query = final_prompt + user_info
 
 if st.button("Generate Resume"):
   with st.spinner("Agent creating Resume..."):
